@@ -2,7 +2,8 @@
 
 function table2html($table)
 {
-    global $pdo;
+
+  global $pdo;
 
     $query = "SELECT * FROM  $table;";
     
@@ -21,7 +22,7 @@ function table2html($table)
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
             }
-            echo "<td><a href=$link><button>Añadir a cesta</button></a></td>";
+            echo "<td><a href=$link><button>Añadir a la cesta</button></a></td>";
             print "</tr>";
         }
         print "</table>";
@@ -29,5 +30,6 @@ function table2html($table)
     else
         print "<h1> No hay resultados </h1>"; 
 }
+
 
 ?>

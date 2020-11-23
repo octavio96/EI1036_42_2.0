@@ -76,14 +76,29 @@ switch ($action) {
         $central = ver_cesta(); //cesta en $_SESSION["cesta"]
         break;
     case "añadir_cesta":
-        array_push($_SESSION["cesta"], $_GET["product"]);
-        $central = ver_cesta(); //tabla compras
+/*
+        $cliente = $_REQUEST["client_id"];
+        $producto = $_REQUEST["product_id"];
+        array_push($_SESSION["cesta"], $producto);    
+        $table = "t_producto";
+*/
+	array_push($_SESSION["cesta"], $_GET["product"]);
+        $central = table2html($table);
+        break;
+    case "BorrarProductoCesta":
+	$item_id = $_REQUEST["item_id"];
+        $key = array_search($item_id, $_SESSION["cesta"]);
+        unset($_SESSION["cesta"][$key]);
+        $central = ver_cesta(); 
         break;
     case "realizar_compra":
          if ($_SESSION["id_usuario"]=="") {
             $central = "/partials/login.php";
         } else {
-            $central = realizarCompra();
+	    $table = "t_compra";
+    	    $client_id = $_SESSION["usuario_id"];
+    	    $product_id = $_REQUEST["item_id"];
+            $central = realizarCompra($table,$cliente_id,$producto_id);
         } //cesta en $_SESSION["cesta"] //cesta en $_SESSION["cesta"]
         break;
     case "logout":
@@ -92,6 +107,24 @@ switch ($action) {
         $_SESSION["cesta"] = null;
         $central="/partials/centro.php";
         break;
+   case "upload":
+	$target_dir = "uploads/";
+	$target_file = $target_dir . basename($_FILES["foto_url"]["name"]);
+	$uploadOk = 1;
+	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+	// Check if $uploadOk is set to 0 by an error
+	if ($uploadOk == 0) {
+	  echo "Sorry, your file was not uploaded.";
+	// if everything is ok, try to upload file
+	} else {
+	  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+	    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+	  } else {
+	    echo "Sorry, there was an error uploading your file.";
+	  }
+	
+	$central = "/includes/registrar_producto.php";
+
     default:
         $data["error"] = "Accion No permitida";
         $central = "/partials/centro.php";

@@ -127,3 +127,16 @@ section#blog {
     margin-top: 0px;
     text-align: right;
 }
+.ventana {
+    background: rgba(190, 253, 255, 0.4);
+    position: fixed;
+    width: auto;
+    height: auto;
+    float: none;
+    bottom: 245px;
+    right: 515px;
+    text-align: center;
+    border-style: solid;
+    padding: 8px 8px 8px 8px;
+    display: none;
+}

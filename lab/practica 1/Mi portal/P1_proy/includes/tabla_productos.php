@@ -17,7 +17,11 @@ function tabla_productos($table)
         foreach ($rows as $row) {
             print "<tr>";
             foreach ($row as $key => $val) {
-                echo "<td>", $val, "</td>";
+              if ($key == 'upload'){
+               echo "<td>",'<img src="'.$val.'" />',"</td>";
+              }else{
+               echo "<td>", $val, "</td>";
+              }
             }
             print "</tr>";
         }

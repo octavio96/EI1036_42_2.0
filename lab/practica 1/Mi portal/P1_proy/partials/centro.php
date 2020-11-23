@@ -1,2 +1,3 @@
-<h1> Mi LOGO de tienda AQUÍ</h1>
-<img src="./img/logo.png"/><br>
+<h1> </h1>
+<div align="center"><img src="./img/yoga.jpg"/></div><br>
+
