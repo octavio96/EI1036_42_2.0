@@ -122,7 +122,7 @@ switch ($action) {
 	  } else {
 	    echo "Sorry, there was an error uploading your file.";
 	  }
-	
+	}
 	$central = "/includes/registrar_producto.php";
 
     default:
