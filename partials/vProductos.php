@@ -13,4 +13,5 @@
         </div> 
     </div>
 </main>
+<script src="javascripts/ventana.js"> </script>
 </body>
