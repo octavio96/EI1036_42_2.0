@@ -14,6 +14,9 @@
 		</li>
 		<li>    <a href="?action=registrar_producto">Registrar Producto</a>
 		</li>
+                <li>
+			<a href="?action=mobile">Movil</a>
+		</li>
 		<?php 
 		
 		 if (!isset($_SESSION['usuario'])){

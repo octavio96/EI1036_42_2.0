@@ -125,6 +125,10 @@ switch ($action) {
 	}
 	$central = "/includes/registrar_producto.php";
 
+    case "mobile":
+        $central = "/mobile.php";
+        break;
+
     default:
         $data["error"] = "Accion No permitida";
         $central = "/partials/centro.php";
